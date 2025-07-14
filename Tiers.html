@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE QUOTE - Loyalty Program Integration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+        .bg-one-magenta {
+            background-color: #E6007E;
+        }
+        .hover\:bg-one-magenta-dark:hover {
+            background-color: #c4006b;
+        }
+        .border-one-magenta {
+            border-color: #E6007E;
+        }
+        .text-one-magenta {
+            color: #E6007E;
+        }
+        .ring-one-magenta {
+            --tw-ring-color: #E6007E;
+        }
+        .form-input {
+            border: 1px solid #e2e2e2;
+            border-radius: 0.25rem;
+            padding: 0.625rem 0.75rem;
+            width: 100%;
+            font-size: 0.875rem;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #E6007E;
+            box-shadow: 0 0 0 2px rgba(230, 0, 126, 0.2);
+        }
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .sidebar-icon {
+            width: 24px;
+            height: 24px;
+            fill: #6b7280;
+        }
+        .sidebar-item.active .sidebar-icon {
+            fill: #E6007E;
+        }
+        .sidebar-item.active p {
+            color: #E6007E;
+        }
+        .sidebar-item:hover .sidebar-icon, .sidebar-item:hover p {
+            color: #E6007E;
+            fill: #E6007E;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="flex min-h-screen">
+        <!-- Left Sidebar Navigation -->
+        <aside class="w-24 flex flex-col items-center bg-white border-r border-gray-200 py-4">
+            <div class="flex-shrink-0 mb-8">
+                <img src="https://www.one-line.com/sites/one/files/one_logo_rgb_1.png" alt="ONE Logo" class="h-6" onerror="this.onerror=null;this.src='https://placehold.co/100x24/e8e8e8/000000?text=ONE';">
+            </div>
+            <nav class="flex flex-col items-center space-y-6">
+                <a href="#" class="sidebar-item active flex flex-col items-center text-center w-full" title="Home">
+                    <i class="fas fa-home text-xl text-one-magenta"></i>
+                    <p class="text-xs mt-1 font-medium">HOME</p>
+                </a>
+                <a href="#" class="sidebar-item flex flex-col items-center text-center w-full text-gray-600 hover:text-one-magenta" title="Schedule">
+                    <i class="fas fa-calendar-alt text-xl"></i>
+                    <p class="text-xs mt-1 font-medium">SCHEDULE</p>
+                </a>
+                <a href="#" class="sidebar-item flex flex-col items-center text-center w-full text-gray-600 hover:text-one-magenta" title="Pricing">
+                    <i class="fas fa-tags text-xl"></i>
+                    <p class="text-xs mt-1 font-medium">PRICING</p>
+                </a>
+                <a href="#" class="sidebar-item flex flex-col items-center text-center w-full text-gray-600 hover:text-one-magenta" title="Booking">
+                    <i class="fas fa-book text-xl"></i>
+                    <p class="text-xs mt-1 font-medium">BOOKING</p>
+                </a>
+                <a href="#" class="sidebar-item flex flex-col items-center text-center w-full text-gray-600 hover:text-one-magenta" title="Documentation">
+                    <i class="fas fa-file-alt text-xl"></i>
+                    <p class="text-xs mt-1 font-medium">DOCUMENTATION</p>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <div class="flex-1 flex flex-col">
+            <!-- Top Header -->
+            <header class="bg-white border-b border-gray-200">
+                <div class="px-8 py-3 flex justify-between items-center">
+                    <div>
+                        <h1 class="text-xl font-bold">ONE QUOTE</h1>
+                        <p class="text-sm text-gray-500">Get instant quote anytime, anywhere</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="border border-one-magenta text-one-magenta font-bold text-sm py-2 px-4 rounded hover:bg-pink-50 transition">+ New Quote</button>
+                        <button class="border border-gray-300 text-gray-700 font-bold text-sm py-2 px-4 rounded hover:bg-gray-100 transition">User Guide <i class="fas fa-chevron-down ml-2 text-xs"></i></button>
+                    </div>
+                </div>
+                <nav class="px-8 flex space-x-8">
+                    <a href="#" class="py-3 text-sm font-semibold text-one-magenta border-b-2 border-one-magenta">GetQuote</a>
+                    <a href="#" class="py-3 text-sm font-semibold text-gray-500 hover:text-one-magenta">Port Pair List</a>
+                    <a href="#" class="py-3 text-sm font-semibold text-gray-500 hover:text-one-magenta">Bookmark</a>
+                    <a href="#" class="py-3 text-sm font-semibold text-gray-500 hover:text-one-magenta">My Contract</a>
+                </nav>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 p-8">
+                <div class="grid grid-cols-12 gap-8">
+                    <!-- Left Column -->
+                    <div class="col-span-12 lg:col-span-4">
+                        <!-- Recent Search Block -->
+                        <div class="bg-white p-5 rounded-md border border-gray-200">
+                            <h2 class="text-md font-bold text-gray-800 mb-4">Recent Search</h2>
+                            <div class="space-y-4">
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                    <p class="font-bold">COPENHAGEN to QINGDAO</p>
+                                    <p class="text-gray-500">SHANDONG</p>
+                                </a>
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                    <p class="font-bold">PUSAN to JEBEL ALI</p>
+                                </a>
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                    <p class="font-bold">SINGAPORE to FOS-SUR-MER</p>
+                                    <p class="text-gray-500">BOUCHES DU RHONE</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- My Loyalty Rewards Block -->
+                        <div class="bg-white p-5 rounded-md border border-gray-200 mt-8">
+                            <h2 class="text-md font-bold text-gray-800 mb-4">My Loyalty Rewards</h2>
+                            <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg mb-4">
+                                <p class="font-bold text-gray-800">Current Tier: Silver Sail</p>
+                                <p class="text-sm text-gray-600">You're earning great rewards!</p>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="text-sm text-gray-600 font-medium">Your next available coupons:</p>
+                                <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center justify-between">
+                                    <span class="font-bold text-lg text-one-magenta">$40</span>
+                                    <span class="text-xs text-gray-500">Expires: 31/07/2025</span>
+                                </div>
+                                <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center justify-between">
+                                    <span class="font-bold text-lg text-one-magenta">$40</span>
+                                    <span class="text-xs text-gray-500">Expires: 10/08/2025</span>
+                                </div>
+                            </div>
+                            <button id="open-panel-btn" class="mt-4 w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition text-sm">
+                                View All Rewards & Progress
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-span-12 lg:col-span-8">
+                        <div class="bg-white p-5 rounded-md border border-gray-200">
+                            <h2 class="text-md font-bold text-gray-800 mb-4">Input Route</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="form-label" for="origin">Origin*</label>
+                                    <div class="relative">
+                                        <input type="text" id="origin" class="form-input pl-4" placeholder="Please search location">
+                                        <i class="fas fa-search absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="destination">Destination*</label>
+                                    <div class="relative">
+                                        <input type="text" id="destination" class="form-input pl-4" placeholder="Please search location">
+                                        <i class="fas fa-search absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h2 class="text-md font-bold text-gray-800 mt-6 mb-4">Select Container*</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div>
+                                    <label class="form-label" for="equipment-type">Equipment Type*</label>
+                                    <select id="equipment-type" class="form-input">
+                                        <option>Select an Equipment Type</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="quantity">Quantity*</label>
+                                    <input type="number" id="quantity" class="form-input" value="1">
+                                </div>
+                                <div>
+                                    <label class="form-label" for="cargo-weight">Cargo Weight*</label>
+                                    <input type="text" id="cargo-weight" class="form-input" value="0">
+                                </div>
+                            </div>
+                            
+                            <h2 class="text-md font-bold text-gray-800 mt-6 mb-4">Select Commodity*</h2>
+                             <div class="relative">
+                                <input type="text" id="commodity" class="form-input pl-4" placeholder="Please input Commodity Name or HS code">
+                                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+
+                            <h2 class="text-md font-bold text-gray-800 mt-6 mb-4">Select Date*</h2>
+                            <div class="relative">
+                                <input type="text" id="vessel-date" class="form-input pl-4" placeholder="Please select vessel departure date at origin">
+                                <i class="fas fa-calendar-alt absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+
+                            <div class="flex justify-end space-x-4 mt-8">
+                                <button class="text-gray-600 font-bold text-sm py-2 px-4 rounded hover:bg-gray-100 transition">Clear</button>
+                                <button class="bg-gray-600 text-white font-bold text-sm py-2 px-6 rounded hover:bg-gray-700 transition">GetQuote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Dark overlay backdrop -->
+    <div id="panel-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden transition-opacity duration-300"></div>
+
+    <!-- Slide-out panel -->
+    <div id="side-panel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <!-- Panel Header -->
+            <div class="flex justify-between items-center p-5 border-b bg-gray-50">
+                <h2 class="text-xl font-bold text-gray-800">Your Loyalty Dashboard</h2>
+                <button id="close-panel-btn" class="text-gray-500 hover:text-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Panel Content -->
+            <div class="flex-grow p-6 overflow-y-auto custom-scrollbar">
+                <!-- Rewards & Tiers Section -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Rewards & Tiers</h3>
+                    <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg">
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <svg class="w-10 h-10 text-one-magenta" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <p class="font-bold text-gray-800 text-lg">Current Tier: Silver Sail</p>
+                                    <a href="#" id="open-tier-details-btn" class="text-xs text-one-magenta hover:underline font-semibold">(View Tiers)</a>
+                                </div>
+                                <p class="text-sm text-gray-600">You earn a $40 coupon for every 10 TEUs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEU Performance Progress Section -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Performance Progress (This Quarter)</h3>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-medium text-gray-600">Progress to <span class="font-bold text-yellow-600">Golden Sea</span></span>
+                            <span class="text-sm font-bold text-gray-800">45 / 60 TEU</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="bg-gradient-to-r from-pink-500 to-one-magenta h-4 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Coupons Section -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Your Coupon Wallet</h3>
+                    <div class="space-y-4">
+                        <!-- Coupon Card 1 -->
+                        <div class="bg-white border rounded-lg p-4 shadow-sm flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-2xl text-one-magenta">$40</p>
+                                <p class="text-sm text-gray-500">Start-of-quarter bonus</p>
+                                <p class="text-xs text-gray-500 mt-1">Expires: 31/07/2025</p>
+                            </div>
+                            <button class="apply-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition">Apply</button>
+                        </div>
+                        
+                        <!-- Coupon Card 2 -->
+                        <div class="bg-white border rounded-lg p-4 shadow-sm flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-2xl text-one-magenta">$40</p>
+                                <p class="text-sm text-gray-500">Performance reward</p>
+                                <p class="text-xs text-gray-500 mt-1">Expires: 10/08/2025</p>
+                            </div>
+                            <button class="apply-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition">Apply</button>
+                        </div>
+                        
+                        <!-- Expired Coupon Card -->
+                        <div class="bg-gray-100 border rounded-lg p-4 shadow-sm flex justify-between items-center opacity-60">
+                            <div>
+                                <p class="font-bold text-2xl text-gray-500">$20</p>
+                                <p class="text-sm text-gray-400">Performance reward</p>
+                                <p class="text-xs text-gray-400 mt-1">Expired: 30/06/2025</p>
+                            </div>
+                            <button class="bg-gray-300 text-gray-500 font-semibold py-2 px-5 rounded-lg cursor-not-allowed" disabled>Expired</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tier Details Modal -->
+    <div id="tier-details-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4">
+        <div class="fixed inset-0 bg-black bg-opacity-60 transition-opacity duration-300" id="tier-modal-backdrop"></div>
+        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-3xl mx-auto text-left z-10 w-full transform transition-all duration-300 scale-95 opacity-0" id="tier-modal-content">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b">
+                <h3 class="text-2xl font-bold text-gray-800">Tier Comparison</h3>
+                <button id="close-tier-modal-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-3 font-semibold text-gray-600">Tier</th>
+                            <th class="p-3 font-semibold text-gray-600">Quarterly TEU Requirement</th>
+                            <th class="p-3 font-semibold text-gray-600">Reward Value</th>
+                            <th class="p-3 font-semibold text-gray-600">Earning Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr>
+                            <td class="p-3 font-bold">Blue Wave</td>
+                            <td class="p-3">1 TEU</td>
+                            <td class="p-3">$20 / Unit</td>
+                            <td class="p-3">For every 5 TEUs</td>
+                        </tr>
+                        <tr class="bg-pink-50 ring-2 ring-one-magenta">
+                            <td class="p-3 font-bold flex items-center">
+                                Silver Sail 
+                                <span class="ml-2 text-xs bg-one-magenta text-white font-bold py-0.5 px-2 rounded-full">YOUR TIER</span>
+                            </td>
+                            <td class="p-3">30 TEUs</td>
+                            <td class="p-3">$40 / Unit</td>
+                            <td class="p-3">For every 10 TEUs</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Golden Sea</td>
+                            <td class="p-3">60 TEUs</td>
+                            <td class="p-3">$60 / Unit</td>
+                            <td class="p-3">For every 10 TEUs</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Million Magenta</td>
+                            <td class="p-3">150 TEUs</td>
+                            <td class="p-3">$80 / Unit</td>
+                            <td class="p-3">For every 10 TEUs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4">
+         <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
+        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm mx-auto text-center z-10">
+            <div class="mb-4">
+                <svg class="w-16 h-16 text-one-magenta mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Applied Successfully!</h3>
+            <p class="text-gray-600 mb-6">The coupon has been applied to your current booking.</p>
+            <button id="close-modal-btn" class="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-400 transition">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get all necessary elements from the DOM
+        const openPanelBtn = document.getElementById('open-panel-btn');
+        const closePanelBtn = document.getElementById('close-panel-btn');
+        const sidePanel = document.getElementById('side-panel');
+        const backdrop = document.getElementById('panel-backdrop');
+        
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        const notificationModal = document.getElementById('notification-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        const openTierDetailsBtn = document.getElementById('open-tier-details-btn');
+        const tierDetailsModal = document.getElementById('tier-details-modal');
+        const closeTierModalBtn = document.getElementById('close-tier-modal-btn');
+        const tierModalBackdrop = document.getElementById('tier-modal-backdrop');
+        const tierModalContent = document.getElementById('tier-modal-content');
+
+        // Function to open the side panel
+        function openPanel() {
+            backdrop.classList.remove('hidden');
+            sidePanel.classList.remove('translate-x-full');
+        }
+
+        // Function to close the side panel
+        function closePanel() {
+            sidePanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+            }, 300);
+        }
+        
+        // Function to show the notification modal
+        function showNotification() {
+            notificationModal.classList.remove('hidden');
+        }
+
+        // Function to hide the notification modal
+        function hideNotification() {
+            notificationModal.classList.add('hidden');
+        }
+
+        // Function to open the tier details modal
+        function openTierModal() {
+            tierDetailsModal.classList.remove('hidden');
+            // Animate the modal content entrance
+            setTimeout(() => {
+                tierModalContent.classList.remove('scale-95', 'opacity-0');
+            }, 50);
+        }
+
+        // Function to close the tier details modal
+        function closeTierModal() {
+            tierModalContent.classList.add('scale-95', 'opacity-0');
+             setTimeout(() => {
+                tierDetailsModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Event listeners
+        openPanelBtn.addEventListener('click', openPanel);
+        closePanelBtn.addEventListener('click', closePanel);
+        backdrop.addEventListener('click', closePanel);
+
+        applyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showNotification();
+            });
+        });
+        
+        closeModalBtn.addEventListener('click', hideNotification);
+
+        // New event listeners for tier details
+        openTierDetailsBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent link from navigating
+            openTierModal();
+        });
+
+        closeTierModalBtn.addEventListener('click', closeTierModal);
+        tierModalBackdrop.addEventListener('click', closeTierModal);
+
+    </script>
+
+</body>
+</html>
