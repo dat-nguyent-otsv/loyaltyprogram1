@@ -162,13 +162,21 @@
                             </div>
                             <div class="space-y-3">
                                 <p class="text-sm text-gray-600 font-medium">Your next available coupons:</p>
+                                <!-- Quick Coupon 1 -->
                                 <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center justify-between">
-                                    <span class="font-bold text-lg text-one-magenta">$40</span>
-                                    <span class="text-xs text-gray-500">Expires: 31/07/2025</span>
+                                    <div>
+                                        <span class="font-bold text-lg text-one-magenta">$40</span>
+                                        <span class="text-xs text-gray-500 block">Expires: 31/07/2025</span>
+                                    </div>
+                                    <button class="apply-coupon-btn text-one-magenta font-bold text-xs py-1 px-3 rounded border border-one-magenta hover:bg-pink-50 transition" data-code="QUARTERLY40" data-value="40.00">Apply</button>
                                 </div>
+                                <!-- Quick Coupon 2 -->
                                 <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center justify-between">
-                                    <span class="font-bold text-lg text-one-magenta">$40</span>
-                                    <span class="text-xs text-gray-500">Expires: 10/08/2025</span>
+                                    <div>
+                                        <span class="font-bold text-lg text-one-magenta">$40</span>
+                                        <span class="text-xs text-gray-500 block">Expires: 10/08/2025</span>
+                                    </div>
+                                    <button class="apply-coupon-btn text-one-magenta font-bold text-xs py-1 px-3 rounded border border-one-magenta hover:bg-pink-50 transition" data-code="PERFORM40" data-value="40.00">Apply</button>
                                 </div>
                             </div>
                             <button id="open-panel-btn" class="mt-4 w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition text-sm">
@@ -227,6 +235,21 @@
                                 <input type="text" id="vessel-date" class="form-input pl-4" placeholder="Please select vessel departure date at origin">
                                 <i class="fas fa-calendar-alt absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                             </div>
+                            
+                            <!-- Promo Code Block -->
+                            <div class="mt-6">
+                                <h2 class="text-md font-bold text-gray-800 mb-4">Promo Code</h2>
+                                <p class="text-sm text-gray-500 mb-4">Don't miss out on our amazing offers! Enter your Promo Code below to get your exclusive discount on ONE QUOTE.</p>
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative flex-grow">
+                                        <input type="text" id="promo-code-input" class="form-input" placeholder="Enter Promo Code">
+                                        <button id="remove-promo-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hidden">&times;</button>
+                                    </div>
+                                    <button id="promo-code-btn" class="bg-gray-200 text-gray-500 font-bold text-sm py-2.5 px-6 rounded cursor-not-allowed" disabled>Applied</button>
+                                </div>
+                                <p id="promo-success-message" class="text-green-600 text-sm mt-2 hidden">Congrats! Your booking has successfully applied this Promo Code.</p>
+                            </div>
+
 
                             <div class="flex justify-end space-x-4 mt-8">
                                 <button class="text-gray-600 font-bold text-sm py-2 px-4 rounded hover:bg-gray-100 transition">Clear</button>
@@ -299,7 +322,7 @@
                                 <p class="text-sm text-gray-500">Start-of-quarter bonus</p>
                                 <p class="text-xs text-gray-500 mt-1">Expires: 31/07/2025</p>
                             </div>
-                            <button class="apply-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition">Apply</button>
+                            <button class="apply-coupon-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition" data-code="QUARTERLY40" data-value="40.00">Apply</button>
                         </div>
                         
                         <!-- Coupon Card 2 -->
@@ -309,7 +332,7 @@
                                 <p class="text-sm text-gray-500">Performance reward</p>
                                 <p class="text-xs text-gray-500 mt-1">Expires: 10/08/2025</p>
                             </div>
-                            <button class="apply-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition">Apply</button>
+                            <button class="apply-coupon-btn bg-one-magenta text-white font-semibold py-2 px-5 rounded-lg hover:bg-one-magenta-dark transition" data-code="PERFORM40" data-value="40.00">Apply</button>
                         </div>
                         
                         <!-- Expired Coupon Card -->
@@ -399,7 +422,7 @@
         const sidePanel = document.getElementById('side-panel');
         const backdrop = document.getElementById('panel-backdrop');
         
-        const applyButtons = document.querySelectorAll('.apply-btn');
+        const applyCouponButtons = document.querySelectorAll('.apply-coupon-btn');
         const notificationModal = document.getElementById('notification-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
@@ -408,6 +431,12 @@
         const closeTierModalBtn = document.getElementById('close-tier-modal-btn');
         const tierModalBackdrop = document.getElementById('tier-modal-backdrop');
         const tierModalContent = document.getElementById('tier-modal-content');
+
+        const promoCodeInput = document.getElementById('promo-code-input');
+        const promoCodeBtn = document.getElementById('promo-code-btn');
+        const promoSuccessMessage = document.getElementById('promo-success-message');
+        const removePromoBtn = document.getElementById('remove-promo-btn');
+
 
         // Function to open the side panel
         function openPanel() {
@@ -436,7 +465,6 @@
         // Function to open the tier details modal
         function openTierModal() {
             tierDetailsModal.classList.remove('hidden');
-            // Animate the modal content entrance
             setTimeout(() => {
                 tierModalContent.classList.remove('scale-95', 'opacity-0');
             }, 50);
@@ -450,18 +478,54 @@
             }, 300);
         }
 
+        // Function to handle applying a promo code
+        function applyPromoCode(code, value) {
+            promoCodeInput.value = `${code} (USD -${parseFloat(value).toFixed(2)})`;
+            promoCodeInput.readOnly = true;
+            promoCodeInput.classList.add('bg-gray-100', 'text-gray-500');
+            
+            promoCodeBtn.classList.remove('cursor-not-allowed', 'bg-gray-200');
+            promoCodeBtn.classList.add('bg-gray-600', 'text-white');
+            
+            promoSuccessMessage.classList.remove('hidden');
+            removePromoBtn.classList.remove('hidden');
+            
+            showNotification();
+        }
+
+        // Function to remove/reset the promo code
+        function removePromoCode() {
+            promoCodeInput.value = '';
+            promoCodeInput.readOnly = false;
+            promoCodeInput.classList.remove('bg-gray-100', 'text-gray-500');
+            
+            promoCodeBtn.classList.add('cursor-not-allowed', 'bg-gray-200');
+            promoCodeBtn.classList.remove('bg-gray-600', 'text-white');
+
+            promoSuccessMessage.classList.add('hidden');
+            removePromoBtn.classList.add('hidden');
+        }
+
         // Event listeners
         openPanelBtn.addEventListener('click', openPanel);
         closePanelBtn.addEventListener('click', closePanel);
         backdrop.addEventListener('click', closePanel);
 
-        applyButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                showNotification();
+        applyCouponButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const code = e.target.dataset.code;
+                const value = e.target.dataset.value;
+                applyPromoCode(code, value);
+                // Optional: close the panel if it's open
+                if (!sidePanel.classList.contains('translate-x-full')) {
+                    closePanel();
+                }
             });
         });
         
         closeModalBtn.addEventListener('click', hideNotification);
+        removePromoBtn.addEventListener('click', removePromoCode);
+
 
         // New event listeners for tier details
         openTierDetailsBtn.addEventListener('click', (e) => {
