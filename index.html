@@ -157,8 +157,15 @@
                         <div class="bg-white p-5 rounded-md border border-gray-200 mt-8">
                             <h2 class="text-md font-bold text-gray-800 mb-4">My Loyalty Rewards</h2>
                             <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg mb-4">
-                                <p class="font-bold text-gray-800">Current Tier: Silver Sail</p>
-                                <p class="text-sm text-gray-600">You're earning great rewards!</p>
+                                <div class="flex items-center">
+                                    <div class="mr-4 text-center">
+                                        <i class="fas fa-sailboat fa-2x text-one-magenta"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800">Current Tier: Silver Sail</p>
+                                        <p class="text-sm text-gray-600">You're earning great rewards!</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="space-y-3">
                                 <p class="text-sm text-gray-600 font-medium">Your next available coupons:</p>
@@ -283,8 +290,8 @@
                     <h3 class="text-lg font-semibold text-gray-700 mb-4">Rewards & Tiers</h3>
                     <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg">
                         <div class="flex items-center">
-                            <div class="mr-4">
-                                <svg class="w-10 h-10 text-one-magenta" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path></svg>
+                            <div class="mr-4 text-center">
+                                <i class="fas fa-sailboat fa-2x text-one-magenta"></i>
                             </div>
                             <div>
                                 <div class="flex items-center gap-2">
@@ -353,7 +360,7 @@
     <!-- Tier Details Modal -->
     <div id="tier-details-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4">
         <div class="fixed inset-0 bg-black bg-opacity-60 transition-opacity duration-300" id="tier-modal-backdrop"></div>
-        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-3xl mx-auto text-left z-10 w-full transform transition-all duration-300 scale-95 opacity-0" id="tier-modal-content">
+        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-4xl mx-auto text-left z-10 w-full transform transition-all duration-300 scale-95 opacity-0" id="tier-modal-content">
             <div class="flex justify-between items-center mb-4 pb-2 border-b">
                 <h3 class="text-2xl font-bold text-gray-800">Tier Comparison</h3>
                 <button id="close-tier-modal-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
@@ -362,39 +369,72 @@
                 <table class="min-w-full text-sm text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-3 font-semibold text-gray-600">Tier</th>
+                            <th class="p-3 font-semibold text-gray-600 w-1/4">Tier</th>
                             <th class="p-3 font-semibold text-gray-600">Quarterly TEU Requirement</th>
                             <th class="p-3 font-semibold text-gray-600">Reward Value</th>
                             <th class="p-3 font-semibold text-gray-600">Earning Rate</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y">
-                        <tr>
-                            <td class="p-3 font-bold">Blue Wave</td>
-                            <td class="p-3">1 TEU</td>
-                            <td class="p-3">$20 / Unit</td>
-                            <td class="p-3">For every 5 TEUs</td>
-                        </tr>
-                        <tr class="bg-pink-50 ring-2 ring-one-magenta">
-                            <td class="p-3 font-bold flex items-center">
-                                Silver Sail 
-                                <span class="ml-2 text-xs bg-one-magenta text-white font-bold py-0.5 px-2 rounded-full">YOUR TIER</span>
+                        <!-- Blue Wave Tier -->
+                        <tr class="hover:bg-blue-50">
+                            <td class="p-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-water fa-2x text-blue-500"></i>
+                                    <div>
+                                        <p class="font-bold text-blue-800">Blue Wave</p>
+                                        <p class="text-xs text-gray-500">Start your journey</p>
+                                    </div>
+                                </div>
                             </td>
-                            <td class="p-3">30 TEUs</td>
-                            <td class="p-3">$40 / Unit</td>
-                            <td class="p-3">For every 10 TEUs</td>
+                            <td class="p-4">1 TEU</td>
+                            <td class="p-4">$20 / Unit</td>
+                            <td class="p-4">For every 5 TEUs</td>
                         </tr>
-                        <tr>
-                            <td class="p-3 font-bold">Golden Sea</td>
-                            <td class="p-3">60 TEUs</td>
-                            <td class="p-3">$60 / Unit</td>
-                            <td class="p-3">For every 10 TEUs</td>
+                        <!-- Silver Sail Tier -->
+                        <tr class="bg-pink-50 ring-2 ring-one-magenta">
+                            <td class="p-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-sailboat fa-2x text-gray-600"></i>
+                                    <div>
+                                        <p class="font-bold text-one-magenta">Silver Sail <span class="ml-2 text-xs bg-one-magenta text-white font-bold py-0.5 px-2 rounded-full">YOUR TIER</span></p>
+                                        <p class="text-xs text-gray-500">Sail smoothly with premium rewards</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4">30 TEUs</td>
+                            <td class="p-4">$40 / Unit</td>
+                            <td class="p-4">For every 10 TEUs</td>
                         </tr>
-                        <tr>
-                            <td class="p-3 font-bold">Million Magenta</td>
-                            <td class="p-3">150 TEUs</td>
-                            <td class="p-3">$80 / Unit</td>
-                            <td class="p-3">For every 10 TEUs</td>
+                        <!-- Golden Sea Tier -->
+                        <tr class="hover:bg-yellow-50">
+                            <td class="p-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-anchor fa-2x text-yellow-500"></i>
+                                    <div>
+                                        <p class="font-bold text-yellow-800">Golden Sea</p>
+                                        <p class="text-xs text-gray-500">Anchor in golden opportunities</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4">60 TEUs</td>
+                            <td class="p-4">$60 / Unit</td>
+                            <td class="p-4">For every 10 TEUs</td>
+                        </tr>
+                        <!-- Million Magenta Tier -->
+                        <tr class="hover:bg-purple-50">
+                            <td class="p-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-gem fa-2x text-one-magenta"></i>
+                                    <div>
+                                        <p class="font-bold text-purple-800">Million Magenta</p>
+                                        <p class="text-xs text-gray-500">Experience exclusive benefits</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4">150 TEUs</td>
+                            <td class="p-4">$80 / Unit</td>
+                            <td class="p-4">For every 10 TEUs</td>
                         </tr>
                     </tbody>
                 </table>
