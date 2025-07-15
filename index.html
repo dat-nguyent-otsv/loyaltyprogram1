@@ -8,9 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            /* Primary Palette (Magenta) */
+            --one-primary-100: #F8E7F1;
+            --one-primary-700: #E6007E;
+            --one-primary-800: #8A0B5C;
+            
+            /* Secondary Palette (Teal) */
+            --one-secondary-100: #E2F2F1;
+            --one-secondary-400: #5AA7AD;
+            --one-secondary-600: #2F728C;
+            --one-secondary-900: #033246;
+
+            /* Neutral Palette (Gray) */
+            --one-neutral-100: #F5F7FA;
+            --one-neutral-200: #DBDDE5;
+            --one-neutral-700: #555A61;
+            --one-neutral-900: #333333;
+
+            /* System Colors */
+            --one-success-500: #22c55e;
+            --one-success-600: #16a34a;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f7f7f9;
+            color: var(--one-neutral-900);
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
@@ -26,19 +50,19 @@
             background: #aaa;
         }
         .bg-one-magenta {
-            background-color: #E6007E;
+            background-color: var(--one-primary-700);
         }
         .hover\:bg-one-magenta-dark:hover {
             background-color: #c4006b;
         }
         .border-one-magenta {
-            border-color: #E6007E;
+            border-color: var(--one-primary-700);
         }
         .text-one-magenta {
-            color: #E6007E;
+            color: var(--one-primary-700);
         }
         .ring-one-magenta {
-            --tw-ring-color: #E6007E;
+            --tw-ring-color: var(--one-primary-700);
         }
         .form-input {
             border: 1px solid #e2e2e2;
@@ -49,7 +73,7 @@
         }
         .form-input:focus {
             outline: none;
-            border-color: #E6007E;
+            border-color: var(--one-primary-700);
             box-shadow: 0 0 0 2px rgba(230, 0, 126, 0.2);
         }
         .form-label {
@@ -65,14 +89,14 @@
             fill: #6b7280;
         }
         .sidebar-item.active .sidebar-icon {
-            fill: #E6007E;
+            fill: var(--one-primary-700);
         }
         .sidebar-item.active p {
-            color: #E6007E;
+            color: var(--one-primary-700);
         }
         .sidebar-item:hover .sidebar-icon, .sidebar-item:hover p {
-            color: #E6007E;
-            fill: #E6007E;
+            color: var(--one-primary-700);
+            fill: var(--one-primary-700);
         }
     </style>
 </head>
@@ -118,7 +142,7 @@
                         <p class="text-sm text-gray-500">Get instant quote anytime, anywhere</p>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <button class="border border-one-magenta text-one-magenta font-bold text-sm py-2 px-4 rounded hover:bg-pink-50 transition">+ New Quote</button>
+                        <button class="border border-one-magenta text-one-magenta font-bold text-sm py-2 px-4 rounded hover:bg-[var(--one-primary-100)] transition">+ New Quote</button>
                         <button class="border border-gray-300 text-gray-700 font-bold text-sm py-2 px-4 rounded hover:bg-gray-100 transition">User Guide <i class="fas fa-chevron-down ml-2 text-xs"></i></button>
                     </div>
                 </div>
@@ -139,14 +163,14 @@
                         <div class="bg-white p-5 rounded-md border border-gray-200">
                             <h2 class="text-md font-bold text-gray-800 mb-4">Recent Search</h2>
                             <div class="space-y-4">
-                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-[var(--one-neutral-100)]">
                                     <p class="font-bold">COPENHAGEN to QINGDAO</p>
                                     <p class="text-gray-500">SHANDONG</p>
                                 </a>
-                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-[var(--one-neutral-100)]">
                                     <p class="font-bold">PUSAN to JEBEL ALI</p>
                                 </a>
-                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-gray-50">
+                                <a href="#" class="block text-sm p-3 rounded-md hover:bg-[var(--one-neutral-100)]">
                                     <p class="font-bold">SINGAPORE to FOS-SUR-MER</p>
                                     <p class="text-gray-500">BOUCHES DU RHONE</p>
                                 </a>
@@ -156,10 +180,10 @@
                         <!-- My Loyalty Rewards Block -->
                         <div class="bg-white p-5 rounded-md border border-gray-200 mt-8">
                             <h2 class="text-md font-bold text-gray-800 mb-4">My Loyalty Rewards</h2>
-                            <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg mb-4">
+                            <div class="bg-[var(--one-neutral-100)] border-l-4 border-one-magenta p-4 rounded-r-lg mb-4">
                                 <div class="flex items-center">
                                     <div class="mr-4 text-center">
-                                        <i class="fas fa-sailboat fa-2x text-one-magenta"></i>
+                                        <i class="fas fa-sailboat fa-2x text-[var(--one-neutral-700)]"></i>
                                     </div>
                                     <div>
                                         <p class="font-bold text-gray-800">Current Tier: Silver Sail</p>
@@ -175,7 +199,7 @@
                                         <span class="font-bold text-lg text-one-magenta">$40</span>
                                         <span class="text-xs text-gray-500 block">Expires: 31/07/2025</span>
                                     </div>
-                                    <button class="apply-coupon-btn text-one-magenta font-bold text-xs py-1 px-3 rounded border border-one-magenta hover:bg-pink-50 transition" data-code="QUARTERLY40" data-value="40.00">Apply</button>
+                                    <button class="apply-coupon-btn text-[var(--one-secondary-600)] font-bold text-xs py-1 px-3 rounded border border-[var(--one-secondary-400)] hover:bg-[var(--one-secondary-100)] transition" data-code="QUARTERLY40" data-value="40.00">Apply</button>
                                 </div>
                                 <!-- Quick Coupon 2 -->
                                 <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center justify-between">
@@ -183,7 +207,7 @@
                                         <span class="font-bold text-lg text-one-magenta">$40</span>
                                         <span class="text-xs text-gray-500 block">Expires: 10/08/2025</span>
                                     </div>
-                                    <button class="apply-coupon-btn text-one-magenta font-bold text-xs py-1 px-3 rounded border border-one-magenta hover:bg-pink-50 transition" data-code="PERFORM40" data-value="40.00">Apply</button>
+                                    <button class="apply-coupon-btn text-[var(--one-secondary-600)] font-bold text-xs py-1 px-3 rounded border border-[var(--one-secondary-400)] hover:bg-[var(--one-secondary-100)] transition" data-code="PERFORM40" data-value="40.00">Apply</button>
                                 </div>
                             </div>
                             <button id="open-panel-btn" class="mt-4 w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition text-sm">
@@ -254,13 +278,13 @@
                                     </div>
                                     <button id="promo-code-btn" class="bg-gray-200 text-gray-500 font-bold text-sm py-2.5 px-6 rounded cursor-not-allowed" disabled>Applied</button>
                                 </div>
-                                <p id="promo-success-message" class="text-green-600 text-sm mt-2 hidden">Congrats! Your booking has successfully applied this Promo Code.</p>
+                                <p id="promo-success-message" class="text-[var(--one-success-600)] text-sm mt-2 hidden">Congrats! Your booking has successfully applied this Promo Code.</p>
                             </div>
 
 
                             <div class="flex justify-end space-x-4 mt-8">
                                 <button class="text-gray-600 font-bold text-sm py-2 px-4 rounded hover:bg-gray-100 transition">Clear</button>
-                                <button class="bg-gray-600 text-white font-bold text-sm py-2 px-6 rounded hover:bg-gray-700 transition">GetQuote</button>
+                                <button class="bg-[var(--one-neutral-700)] text-white font-bold text-sm py-2 px-6 rounded hover:bg-[var(--one-neutral-900)] transition">GetQuote</button>
                             </div>
                         </div>
                     </div>
@@ -288,15 +312,15 @@
                 <!-- Rewards & Tiers Section -->
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-gray-700 mb-4">Rewards & Tiers</h3>
-                    <div class="bg-pink-50 border-l-4 border-one-magenta p-4 rounded-r-lg">
+                    <div class="bg-[var(--one-neutral-100)] border-l-4 border-one-magenta p-4 rounded-r-lg">
                         <div class="flex items-center">
                             <div class="mr-4 text-center">
-                                <i class="fas fa-sailboat fa-2x text-one-magenta"></i>
+                                <i class="fas fa-sailboat fa-2x text-[var(--one-neutral-700)]"></i>
                             </div>
                             <div>
                                 <div class="flex items-center gap-2">
                                     <p class="font-bold text-gray-800 text-lg">Current Tier: Silver Sail</p>
-                                    <a href="#" id="open-tier-details-btn" class="text-xs text-one-magenta hover:underline font-semibold">(View Tiers)</a>
+                                    <a href="#" id="open-tier-details-btn" class="text-xs text-[var(--one-secondary-600)] hover:underline font-semibold">(View Tiers)</a>
                                 </div>
                                 <p class="text-sm text-gray-600">You earn a $40 coupon for every 10 TEUs.</p>
                             </div>
@@ -309,11 +333,11 @@
                     <h3 class="text-lg font-semibold text-gray-700 mb-3">Performance Progress (This Quarter)</h3>
                     <div>
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-sm font-medium text-gray-600">Progress to <span class="font-bold text-yellow-600">Golden Sea</span></span>
+                            <span class="text-sm font-medium text-gray-600">Progress to <span class="font-bold text-[var(--one-secondary-600)]">Golden Sea</span></span>
                             <span class="text-sm font-bold text-gray-800">45 / 60 TEU</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-4">
-                            <div class="bg-gradient-to-r from-pink-500 to-one-magenta h-4 rounded-full" style="width: 75%"></div>
+                            <div class="bg-gradient-to-r from-[var(--one-secondary-400)] to-[var(--one-secondary-600)] h-4 rounded-full" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
@@ -367,22 +391,22 @@
             </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full text-sm text-left">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-[var(--one-neutral-100)]">
                         <tr>
-                            <th class="p-3 font-semibold text-gray-600 w-1/4">Tier</th>
+                            <th class="p-3 font-semibold text-gray-600 w-2/5">Tier</th>
                             <th class="p-3 font-semibold text-gray-600">Quarterly TEU Requirement</th>
                             <th class="p-3 font-semibold text-gray-600">Reward Value</th>
                             <th class="p-3 font-semibold text-gray-600">Earning Rate</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y">
+                    <tbody class="divide-y divide-gray-200">
                         <!-- Blue Wave Tier -->
-                        <tr class="hover:bg-blue-50">
+                        <tr class="hover:bg-[var(--one-secondary-100)] transition-colors">
                             <td class="p-4">
                                 <div class="flex items-center space-x-4">
-                                    <i class="fas fa-water fa-2x text-blue-500"></i>
+                                    <i class="fas fa-water fa-2x text-[var(--one-secondary-400)]"></i>
                                     <div>
-                                        <p class="font-bold text-blue-800">Blue Wave</p>
+                                        <p class="font-bold text-[var(--one-secondary-900)]">Blue Wave</p>
                                         <p class="text-xs text-gray-500">Start your journey</p>
                                     </div>
                                 </div>
@@ -392,14 +416,17 @@
                             <td class="p-4">For every 5 TEUs</td>
                         </tr>
                         <!-- Silver Sail Tier -->
-                        <tr class="bg-pink-50 ring-2 ring-one-magenta">
+                        <tr class="bg-[var(--one-primary-100)] ring-2 ring-one-magenta">
                             <td class="p-4">
-                                <div class="flex items-center space-x-4">
-                                    <i class="fas fa-sailboat fa-2x text-gray-600"></i>
-                                    <div>
-                                        <p class="font-bold text-one-magenta">Silver Sail <span class="ml-2 text-xs bg-one-magenta text-white font-bold py-0.5 px-2 rounded-full">YOUR TIER</span></p>
-                                        <p class="text-xs text-gray-500">Sail smoothly with premium rewards</p>
+                                <div class="flex justify-between items-center w-full">
+                                    <div class="flex items-center space-x-4">
+                                        <i class="fas fa-sailboat fa-2x text-[var(--one-neutral-700)]"></i>
+                                        <div>
+                                            <p class="font-bold text-one-magenta">Silver Sail</p>
+                                            <p class="text-xs text-gray-500">Sail smoothly with premium rewards</p>
+                                        </div>
                                     </div>
+                                    <span class="text-xs bg-one-magenta text-white font-bold py-1 px-3 rounded-full">YOUR TIER</span>
                                 </div>
                             </td>
                             <td class="p-4">30 TEUs</td>
@@ -407,7 +434,7 @@
                             <td class="p-4">For every 10 TEUs</td>
                         </tr>
                         <!-- Golden Sea Tier -->
-                        <tr class="hover:bg-yellow-50">
+                        <tr class="hover:bg-yellow-50 transition-colors">
                             <td class="p-4">
                                 <div class="flex items-center space-x-4">
                                     <i class="fas fa-anchor fa-2x text-yellow-500"></i>
@@ -422,12 +449,12 @@
                             <td class="p-4">For every 10 TEUs</td>
                         </tr>
                         <!-- Million Magenta Tier -->
-                        <tr class="hover:bg-purple-50">
+                        <tr class="hover:bg-[var(--one-primary-100)] transition-colors">
                             <td class="p-4">
                                 <div class="flex items-center space-x-4">
-                                    <i class="fas fa-gem fa-2x text-one-magenta"></i>
+                                    <i class="fas fa-gem fa-2x text-[var(--one-primary-800)]"></i>
                                     <div>
-                                        <p class="font-bold text-purple-800">Million Magenta</p>
+                                        <p class="font-bold text-[var(--one-primary-800)]">Million Magenta</p>
                                         <p class="text-xs text-gray-500">Experience exclusive benefits</p>
                                     </div>
                                 </div>
@@ -447,7 +474,7 @@
          <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
         <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm mx-auto text-center z-10">
             <div class="mb-4">
-                <svg class="w-16 h-16 text-one-magenta mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <svg class="w-16 h-16 text-[var(--one-success-500)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2">Applied Successfully!</h3>
             <p class="text-gray-600 mb-6">The coupon has been applied to your current booking.</p>
